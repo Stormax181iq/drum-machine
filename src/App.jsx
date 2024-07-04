@@ -1,5 +1,11 @@
+import DrumMachine from "./components/DrumMachine";
+
 function App() {
-  return <h1 className="text-3xl text-cyan-600 ">test</h1>;
+  return (
+    <div className="flex items-center justify-center">
+      <DrumMachine />
+    </div>
+  );
 }
 
 export default App;
