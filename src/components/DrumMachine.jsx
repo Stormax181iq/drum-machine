@@ -2,12 +2,23 @@ import PropTypes from "prop-types";
 
 import DrumButton from "./DrumButton";
 
-export default function DrumMachine({ onPlayAudio, isPowered, setIsPowered }) {
+export default function DrumMachine({
+  onPlayAudio,
+  isPowered,
+  setIsPowered,
+  volume,
+  setVolume,
+}) {
   return (
     <div className="flex justify-between border-orange-300 border-4 p-6 rounded-xl bg-slate-100">
       <div className="grid grid-cols-3 w-64 h-64">
         {["a", "z", "e", "q", "s", "d", "w", "x", "c"].map((key) => (
-          <DrumButton key={key} keyTrigger={key} onPlayAudio={onPlayAudio} />
+          <DrumButton
+            key={key}
+            keyTrigger={key}
+            onPlayAudio={onPlayAudio}
+            keyValue
+          />
         ))}
       </div>
       <div className="flex flex-col justify-around ml-10 items-center">
@@ -31,7 +42,9 @@ export default function DrumMachine({ onPlayAudio, isPowered, setIsPowered }) {
             id="volume"
             name="volume"
             min={0}
+            value={volume}
             max={100}
+            onChange={(e) => setVolume(e.target.value)}
           />
           <label htmlFor="volume">Volume</label>
         </div>
@@ -44,4 +57,6 @@ DrumMachine.propTypes = {
   onPlayAudio: PropTypes.func.isRequired,
   isPowered: PropTypes.bool.isRequired,
   setIsPowered: PropTypes.func.isRequired,
+  volume: PropTypes.number.isRequired,
+  setVolume: PropTypes.func.isRequired,
 };
