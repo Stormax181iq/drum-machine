@@ -2,7 +2,7 @@ import DrumMachine from "./components/DrumMachine";
 
 function App() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex h-svh bg-slate-400 items-center justify-center">
       <DrumMachine />
     </div>
   );
